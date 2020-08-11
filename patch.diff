@@ -1,0 +1,4177 @@
+From 2ce84d48be4eb754b9e1d79da8787ac8048b8d86 Mon Sep 17 00:00:00 2001
+From: Nipitpon1123 <nipitpon59.nut@gmail.com>
+Date: Wed, 22 Jul 2020 11:48:54 +0700
+Subject: [PATCH] Addmodelandscriptshowmodel
+
+---
+ legend_siam_ar/Assets/ModelPerfab.meta        |   8 +
+ .../Assets/ModelPerfab/A01_Masking.prefab     | 272 ++++++
+ .../A01_Masking.prefab.meta}                  |   2 +-
+ legend_siam_ar/Assets/ModelTest.meta          |   8 +
+ .../Assets/ModelTest/A01_Masking.fbx          | Bin 0 -> 84896 bytes
+ .../Assets/ModelTest/A01_Masking.fbx.meta     |  97 +++
+ legend_siam_ar/Assets/Script/ShowModel.cs     |  22 +
+ .../ShowModel.cs.meta}                        |   2 +-
+ .../Assets/Text_Marker/Black Quad.prefab      |  96 ---
+ .../Assets/Text_Marker/Brahma_text.prefab     | 280 ++++++-
+ .../Assets/Text_Marker/Brahma_text_F.prefab   |   7 +-
+ .../Assets/Text_Marker/Bridge_Night.prefab    |  12 +-
+ .../Assets/Text_Marker/Bridge_text.prefab     |  12 +-
+ .../Text_Marker/Ghost_house_Night.prefab      |  12 +-
+ .../Text_Marker/Ghost_house_text.prefab       |  12 +-
+ .../Assets/Text_Marker/Giant_text.prefab      | 169 +++-
+ .../Assets/Text_Marker/Name place.prefab      | 405 ++++++++-
+ .../Assets/Text_Marker/Road_text.prefab       |  15 +
+ .../Assets/Text_Marker/Road_text_Night.prefab |  20 +
+ .../Assets/Text_Marker/Serpent_night.prefab   |   9 +-
+ .../Assets/Text_Marker/Serpent_text.prefab    |  17 +-
+ .../UI/Legend Siam DemoUI/BG_Text1.png.meta   |   8 +-
+ legend_siam_ar/Assets/UI_focus.cs             |  24 -
+ .../Assets/_PROJECT/_TestMarker.unity         | 785 ++++++++----------
+ .../ProjectSettings/EditorBuildSettings.asset |   3 -
+ 25 files changed, 1690 insertions(+), 607 deletions(-)
+ create mode 100644 legend_siam_ar/Assets/ModelPerfab.meta
+ create mode 100644 legend_siam_ar/Assets/ModelPerfab/A01_Masking.prefab
+ rename legend_siam_ar/Assets/{Text_Marker/Black Quad.prefab.meta => ModelPerfab/A01_Masking.prefab.meta} (74%)
+ create mode 100644 legend_siam_ar/Assets/ModelTest.meta
+ create mode 100644 legend_siam_ar/Assets/ModelTest/A01_Masking.fbx
+ create mode 100644 legend_siam_ar/Assets/ModelTest/A01_Masking.fbx.meta
+ create mode 100644 legend_siam_ar/Assets/Script/ShowModel.cs
+ rename legend_siam_ar/Assets/{UI_focus.cs.meta => Script/ShowModel.cs.meta} (83%)
+ delete mode 100644 legend_siam_ar/Assets/Text_Marker/Black Quad.prefab
+ delete mode 100644 legend_siam_ar/Assets/UI_focus.cs
+
+diff --git a/legend_siam_ar/Assets/ModelPerfab.meta b/legend_siam_ar/Assets/ModelPerfab.meta
+new file mode 100644
+index 0000000..fcee82b
+--- /dev/null
++++ b/legend_siam_ar/Assets/ModelPerfab.meta
+@@ -0,0 +1,8 @@
++fileFormatVersion: 2
++guid: 29ca04a5cbb58a94d8316f5c8d5bce91
++folderAsset: yes
++DefaultImporter:
++  externalObjects: {}
++  userData: 
++  assetBundleName: 
++  assetBundleVariant: 
+diff --git a/legend_siam_ar/Assets/ModelPerfab/A01_Masking.prefab b/legend_siam_ar/Assets/ModelPerfab/A01_Masking.prefab
+new file mode 100644
+index 0000000..dac163c
+--- /dev/null
++++ b/legend_siam_ar/Assets/ModelPerfab/A01_Masking.prefab
+@@ -0,0 +1,272 @@
++%YAML 1.1
++%TAG !u! tag:unity3d.com,2011:
++--- !u!1 &1933283071095838953
++GameObject:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  serializedVersion: 6
++  m_Component:
++  - component: {fileID: 5214800025264049202}
++  - component: {fileID: 4167747259619850548}
++  - component: {fileID: 1497881924428355179}
++  m_Layer: 0
++  m_Name: Wall
++  m_TagString: Untagged
++  m_Icon: {fileID: 0}
++  m_NavMeshLayer: 0
++  m_StaticEditorFlags: 0
++  m_IsActive: 1
++--- !u!4 &5214800025264049202
++Transform:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 1933283071095838953}
++  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
++  m_LocalPosition: {x: -0.0000000023841857, y: 0, z: -0.008589836}
++  m_LocalScale: {x: 1, y: 1, z: 1}
++  m_Children: []
++  m_Father: {fileID: 8914333766695028091}
++  m_RootOrder: 2
++  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
++--- !u!33 &4167747259619850548
++MeshFilter:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 1933283071095838953}
++  m_Mesh: {fileID: 8733429697405204941, guid: a8c68804d5b00524f90c5d3534683e00, type: 3}
++--- !u!23 &1497881924428355179
++MeshRenderer:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 1933283071095838953}
++  m_Enabled: 1
++  m_CastShadows: 1
++  m_ReceiveShadows: 1
++  m_DynamicOccludee: 1
++  m_MotionVectors: 1
++  m_LightProbeUsage: 1
++  m_ReflectionProbeUsage: 1
++  m_RayTracingMode: 2
++  m_RenderingLayerMask: 1
++  m_RendererPriority: 0
++  m_Materials:
++  - {fileID: 5561349426305759274, guid: a8c68804d5b00524f90c5d3534683e00, type: 3}
++  m_StaticBatchInfo:
++    firstSubMesh: 0
++    subMeshCount: 0
++  m_StaticBatchRoot: {fileID: 0}
++  m_ProbeAnchor: {fileID: 0}
++  m_LightProbeVolumeOverride: {fileID: 0}
++  m_ScaleInLightmap: 1
++  m_ReceiveGI: 1
++  m_PreserveUVs: 0
++  m_IgnoreNormalsForChartDetection: 0
++  m_ImportantGI: 0
++  m_StitchLightmapSeams: 1
++  m_SelectedEditorRenderState: 3
++  m_MinimumChartSize: 4
++  m_AutoUVMaxDistance: 0.5
++  m_AutoUVMaxAngle: 89
++  m_LightmapParameters: {fileID: 0}
++  m_SortingLayerID: 0
++  m_SortingLayer: 0
++  m_SortingOrder: 0
++--- !u!1 &4442490399959613926
++GameObject:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  serializedVersion: 6
++  m_Component:
++  - component: {fileID: 3717129372850974548}
++  - component: {fileID: 8972218046615964617}
++  - component: {fileID: 2937071343348946377}
++  m_Layer: 0
++  m_Name: Giant_R
++  m_TagString: Untagged
++  m_Icon: {fileID: 0}
++  m_NavMeshLayer: 0
++  m_StaticEditorFlags: 0
++  m_IsActive: 1
++--- !u!4 &3717129372850974548
++Transform:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 4442490399959613926}
++  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
++  m_LocalPosition: {x: -0.025147552, y: 0, z: 0.03898629}
++  m_LocalScale: {x: 1, y: 1, z: 1}
++  m_Children: []
++  m_Father: {fileID: 8914333766695028091}
++  m_RootOrder: 1
++  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
++--- !u!33 &8972218046615964617
++MeshFilter:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 4442490399959613926}
++  m_Mesh: {fileID: -5348898957649789165, guid: a8c68804d5b00524f90c5d3534683e00, type: 3}
++--- !u!23 &2937071343348946377
++MeshRenderer:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 4442490399959613926}
++  m_Enabled: 1
++  m_CastShadows: 1
++  m_ReceiveShadows: 1
++  m_DynamicOccludee: 1
++  m_MotionVectors: 1
++  m_LightProbeUsage: 1
++  m_ReflectionProbeUsage: 1
++  m_RayTracingMode: 2
++  m_RenderingLayerMask: 1
++  m_RendererPriority: 0
++  m_Materials:
++  - {fileID: 5561349426305759274, guid: a8c68804d5b00524f90c5d3534683e00, type: 3}
++  m_StaticBatchInfo:
++    firstSubMesh: 0
++    subMeshCount: 0
++  m_StaticBatchRoot: {fileID: 0}
++  m_ProbeAnchor: {fileID: 0}
++  m_LightProbeVolumeOverride: {fileID: 0}
++  m_ScaleInLightmap: 1
++  m_ReceiveGI: 1
++  m_PreserveUVs: 0
++  m_IgnoreNormalsForChartDetection: 0
++  m_ImportantGI: 0
++  m_StitchLightmapSeams: 1
++  m_SelectedEditorRenderState: 3
++  m_MinimumChartSize: 4
++  m_AutoUVMaxDistance: 0.5
++  m_AutoUVMaxAngle: 89
++  m_LightmapParameters: {fileID: 0}
++  m_SortingLayerID: 0
++  m_SortingLayer: 0
++  m_SortingOrder: 0
++--- !u!1 &6904930902744430102
++GameObject:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  serializedVersion: 6
++  m_Component:
++  - component: {fileID: 7512223634231748766}
++  - component: {fileID: 7775532626243995921}
++  - component: {fileID: 8998169610885780763}
++  m_Layer: 0
++  m_Name: Giant_L
++  m_TagString: Untagged
++  m_Icon: {fileID: 0}
++  m_NavMeshLayer: 0
++  m_StaticEditorFlags: 0
++  m_IsActive: 1
++--- !u!4 &7512223634231748766
++Transform:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 6904930902744430102}
++  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
++  m_LocalPosition: {x: 0.022260739, y: 0, z: 0.041941084}
++  m_LocalScale: {x: 1, y: 1, z: 1}
++  m_Children: []
++  m_Father: {fileID: 8914333766695028091}
++  m_RootOrder: 0
++  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
++--- !u!33 &7775532626243995921
++MeshFilter:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 6904930902744430102}
++  m_Mesh: {fileID: 7706655655715810029, guid: a8c68804d5b00524f90c5d3534683e00, type: 3}
++--- !u!23 &8998169610885780763
++MeshRenderer:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 6904930902744430102}
++  m_Enabled: 1
++  m_CastShadows: 1
++  m_ReceiveShadows: 1
++  m_DynamicOccludee: 1
++  m_MotionVectors: 1
++  m_LightProbeUsage: 1
++  m_ReflectionProbeUsage: 1
++  m_RayTracingMode: 2
++  m_RenderingLayerMask: 1
++  m_RendererPriority: 0
++  m_Materials:
++  - {fileID: 5561349426305759274, guid: a8c68804d5b00524f90c5d3534683e00, type: 3}
++  m_StaticBatchInfo:
++    firstSubMesh: 0
++    subMeshCount: 0
++  m_StaticBatchRoot: {fileID: 0}
++  m_ProbeAnchor: {fileID: 0}
++  m_LightProbeVolumeOverride: {fileID: 0}
++  m_ScaleInLightmap: 1
++  m_ReceiveGI: 1
++  m_PreserveUVs: 0
++  m_IgnoreNormalsForChartDetection: 0
++  m_ImportantGI: 0
++  m_StitchLightmapSeams: 1
++  m_SelectedEditorRenderState: 3
++  m_MinimumChartSize: 4
++  m_AutoUVMaxDistance: 0.5
++  m_AutoUVMaxAngle: 89
++  m_LightmapParameters: {fileID: 0}
++  m_SortingLayerID: 0
++  m_SortingLayer: 0
++  m_SortingOrder: 0
++--- !u!1 &8141879172341489601
++GameObject:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  serializedVersion: 6
++  m_Component:
++  - component: {fileID: 8914333766695028091}
++  m_Layer: 0
++  m_Name: A01_Masking
++  m_TagString: Untagged
++  m_Icon: {fileID: 0}
++  m_NavMeshLayer: 0
++  m_StaticEditorFlags: 0
++  m_IsActive: 1
++--- !u!4 &8914333766695028091
++Transform:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 8141879172341489601}
++  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
++  m_LocalPosition: {x: 0.013, y: 0.06, z: -0.577}
++  m_LocalScale: {x: 24.73779, y: 24.73779, z: 24.73779}
++  m_Children:
++  - {fileID: 7512223634231748766}
++  - {fileID: 3717129372850974548}
++  - {fileID: 5214800025264049202}
++  m_Father: {fileID: 0}
++  m_RootOrder: 0
++  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+diff --git a/legend_siam_ar/Assets/Text_Marker/Black Quad.prefab.meta b/legend_siam_ar/Assets/ModelPerfab/A01_Masking.prefab.meta
+similarity index 74%
+rename from legend_siam_ar/Assets/Text_Marker/Black Quad.prefab.meta
+rename to legend_siam_ar/Assets/ModelPerfab/A01_Masking.prefab.meta
+index 236901d..9830076 100644
+--- a/legend_siam_ar/Assets/Text_Marker/Black Quad.prefab.meta	
++++ b/legend_siam_ar/Assets/ModelPerfab/A01_Masking.prefab.meta
+@@ -1,5 +1,5 @@
+ fileFormatVersion: 2
+-guid: aec77696b7d5608428c37434d9bf569e
++guid: 93d3b3f9eb0781b43a604d64ba1e06a4
+ PrefabImporter:
+   externalObjects: {}
+   userData: 
+diff --git a/legend_siam_ar/Assets/ModelTest.meta b/legend_siam_ar/Assets/ModelTest.meta
+new file mode 100644
+index 0000000..8723c79
+--- /dev/null
++++ b/legend_siam_ar/Assets/ModelTest.meta
+@@ -0,0 +1,8 @@
++fileFormatVersion: 2
++guid: c3cf35c1065481543a678868fb11d7e4
++folderAsset: yes
++DefaultImporter:
++  externalObjects: {}
++  userData: 
++  assetBundleName: 
++  assetBundleVariant: 
+diff --git a/legend_siam_ar/Assets/ModelTest/A01_Masking.fbx b/legend_siam_ar/Assets/ModelTest/A01_Masking.fbx
+new file mode 100644
+index 0000000000000000000000000000000000000000..f9ee3a760d882f9aa7b63c115e568baed61b6348
+GIT binary patch
+literal 84896
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/legend_siam_ar/Assets/ModelTest/A01_Masking.fbx.meta b/legend_siam_ar/Assets/ModelTest/A01_Masking.fbx.meta
+new file mode 100644
+index 0000000..2b86ca0
+--- /dev/null
++++ b/legend_siam_ar/Assets/ModelTest/A01_Masking.fbx.meta
+@@ -0,0 +1,97 @@
++fileFormatVersion: 2
++guid: a8c68804d5b00524f90c5d3534683e00
++ModelImporter:
++  serializedVersion: 19301
++  internalIDToNameTable: []
++  externalObjects: {}
++  materials:
++    materialImportMode: 1
++    materialName: 0
++    materialSearch: 1
++    materialLocation: 1
++  animations:
++    legacyGenerateAnimations: 4
++    bakeSimulation: 0
++    resampleCurves: 1
++    optimizeGameObjects: 0
++    motionNodeName: 
++    rigImportErrors: 
++    rigImportWarnings: 
++    animationImportErrors: 
++    animationImportWarnings: 
++    animationRetargetingWarnings: 
++    animationDoRetargetingWarnings: 0
++    importAnimatedCustomProperties: 0
++    importConstraints: 0
++    animationCompression: 1
++    animationRotationError: 0.5
++    animationPositionError: 0.5
++    animationScaleError: 0.5
++    animationWrapMode: 0
++    extraExposedTransformPaths: []
++    extraUserProperties: []
++    clipAnimations: []
++    isReadable: 0
++  meshes:
++    lODScreenPercentages: []
++    globalScale: 1
++    meshCompression: 0
++    addColliders: 0
++    useSRGBMaterialColor: 1
++    sortHierarchyByName: 1
++    importVisibility: 1
++    importBlendShapes: 1
++    importCameras: 1
++    importLights: 1
++    fileIdsGeneration: 2
++    swapUVChannels: 0
++    generateSecondaryUV: 0
++    useFileUnits: 1
++    keepQuads: 0
++    weldVertices: 1
++    preserveHierarchy: 0
++    skinWeightsMode: 0
++    maxBonesPerVertex: 4
++    minBoneWeight: 0.001
++    meshOptimizationFlags: -1
++    indexFormat: 0
++    secondaryUVAngleDistortion: 8
++    secondaryUVAreaDistortion: 15.000001
++    secondaryUVHardAngle: 88
++    secondaryUVPackMargin: 4
++    useFileScale: 1
++  tangentSpace:
++    normalSmoothAngle: 60
++    normalImportMode: 0
++    tangentImportMode: 3
++    normalCalculationMode: 4
++    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
++    blendShapeNormalImportMode: 1
++    normalSmoothingSource: 0
++  referencedClips: []
++  importAnimation: 1
++  humanDescription:
++    serializedVersion: 3
++    human: []
++    skeleton: []
++    armTwist: 0.5
++    foreArmTwist: 0.5
++    upperLegTwist: 0.5
++    legTwist: 0.5
++    armStretch: 0.05
++    legStretch: 0.05
++    feetSpacing: 0
++    globalScale: 1
++    rootMotionBoneName: 
++    hasTranslationDoF: 0
++    hasExtraRoot: 0
++    skeletonHasParents: 1
++  lastHumanDescriptionAvatarSource: {instanceID: 0}
++  autoGenerateAvatarMappingIfUnspecified: 1
++  animationType: 2
++  humanoidOversampling: 1
++  avatarSetup: 0
++  additionalBone: 0
++  userData: 
++  assetBundleName: 
++  assetBundleVariant: 
+diff --git a/legend_siam_ar/Assets/Script/ShowModel.cs b/legend_siam_ar/Assets/Script/ShowModel.cs
+new file mode 100644
+index 0000000..6fe7fef
+--- /dev/null
++++ b/legend_siam_ar/Assets/Script/ShowModel.cs
+@@ -0,0 +1,22 @@
++﻿using System.Collections;
++using System.Collections.Generic;
++using UnityEngine;
++using UnityEngine.UI;
++
++public class ShowModel : MonoBehaviour
++{
++    public GameObject Model;
++    public void OnChangeValue()
++    {
++        bool onoffSwitch = gameObject.GetComponent<Toggle>().isOn;
++        if (onoffSwitch)
++        {
++            Model.SetActive(true);
++        }
++        else
++        {
++            Model.SetActive(false);
++        }
++
++    }
++}
+diff --git a/legend_siam_ar/Assets/UI_focus.cs.meta b/legend_siam_ar/Assets/Script/ShowModel.cs.meta
+similarity index 83%
+rename from legend_siam_ar/Assets/UI_focus.cs.meta
+rename to legend_siam_ar/Assets/Script/ShowModel.cs.meta
+index 8d6096c..6012363 100644
+--- a/legend_siam_ar/Assets/UI_focus.cs.meta
++++ b/legend_siam_ar/Assets/Script/ShowModel.cs.meta
+@@ -1,5 +1,5 @@
+ fileFormatVersion: 2
+-guid: 80040e6e4c97fd744a49cccf2ffeeee1
++guid: 5281c62358d4076499a8b5603b3b3fda
+ MonoImporter:
+   externalObjects: {}
+   serializedVersion: 2
+diff --git a/legend_siam_ar/Assets/Text_Marker/Black Quad.prefab b/legend_siam_ar/Assets/Text_Marker/Black Quad.prefab
+deleted file mode 100644
+index e88f1e1..0000000
+--- a/legend_siam_ar/Assets/Text_Marker/Black Quad.prefab	
++++ /dev/null
+@@ -1,96 +0,0 @@
+-%YAML 1.1
+-%TAG !u! tag:unity3d.com,2011:
+---- !u!1 &2051099096075868639
+-GameObject:
+-  m_ObjectHideFlags: 0
+-  m_CorrespondingSourceObject: {fileID: 0}
+-  m_PrefabInstance: {fileID: 0}
+-  m_PrefabAsset: {fileID: 0}
+-  serializedVersion: 6
+-  m_Component:
+-  - component: {fileID: 2475588696306792751}
+-  - component: {fileID: 4051980873415780096}
+-  - component: {fileID: 2902206822641638471}
+-  - component: {fileID: 7686971081937986769}
+-  m_Layer: 0
+-  m_Name: Black Quad
+-  m_TagString: Untagged
+-  m_Icon: {fileID: 0}
+-  m_NavMeshLayer: 0
+-  m_StaticEditorFlags: 0
+-  m_IsActive: 1
+---- !u!4 &2475588696306792751
+-Transform:
+-  m_ObjectHideFlags: 0
+-  m_CorrespondingSourceObject: {fileID: 0}
+-  m_PrefabInstance: {fileID: 0}
+-  m_PrefabAsset: {fileID: 0}
+-  m_GameObject: {fileID: 2051099096075868639}
+-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+-  m_LocalPosition: {x: 23.1, y: -1.6, z: 20.8}
+-  m_LocalScale: {x: 33.711308, y: 15.897522, z: 7.7032332}
+-  m_Children: []
+-  m_Father: {fileID: 0}
+-  m_RootOrder: 0
+-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+---- !u!33 &4051980873415780096
+-MeshFilter:
+-  m_ObjectHideFlags: 0
+-  m_CorrespondingSourceObject: {fileID: 0}
+-  m_PrefabInstance: {fileID: 0}
+-  m_PrefabAsset: {fileID: 0}
+-  m_GameObject: {fileID: 2051099096075868639}
+-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+---- !u!23 &2902206822641638471
+-MeshRenderer:
+-  m_ObjectHideFlags: 0
+-  m_CorrespondingSourceObject: {fileID: 0}
+-  m_PrefabInstance: {fileID: 0}
+-  m_PrefabAsset: {fileID: 0}
+-  m_GameObject: {fileID: 2051099096075868639}
+-  m_Enabled: 1
+-  m_CastShadows: 1
+-  m_ReceiveShadows: 1
+-  m_DynamicOccludee: 1
+-  m_MotionVectors: 1
+-  m_LightProbeUsage: 1
+-  m_ReflectionProbeUsage: 1
+-  m_RayTracingMode: 2
+-  m_RenderingLayerMask: 1
+-  m_RendererPriority: 0
+-  m_Materials:
+-  - {fileID: 2100000, guid: 8083336ca3ce75844aca02009b5cc833, type: 2}
+-  m_StaticBatchInfo:
+-    firstSubMesh: 0
+-    subMeshCount: 0
+-  m_StaticBatchRoot: {fileID: 0}
+-  m_ProbeAnchor: {fileID: 0}
+-  m_LightProbeVolumeOverride: {fileID: 0}
+-  m_ScaleInLightmap: 1
+-  m_ReceiveGI: 1
+-  m_PreserveUVs: 0
+-  m_IgnoreNormalsForChartDetection: 0
+-  m_ImportantGI: 0
+-  m_StitchLightmapSeams: 1
+-  m_SelectedEditorRenderState: 3
+-  m_MinimumChartSize: 4
+-  m_AutoUVMaxDistance: 0.5
+-  m_AutoUVMaxAngle: 89
+-  m_LightmapParameters: {fileID: 0}
+-  m_SortingLayerID: 0
+-  m_SortingLayer: 0
+-  m_SortingOrder: 0
+---- !u!64 &7686971081937986769
+-MeshCollider:
+-  m_ObjectHideFlags: 0
+-  m_CorrespondingSourceObject: {fileID: 0}
+-  m_PrefabInstance: {fileID: 0}
+-  m_PrefabAsset: {fileID: 0}
+-  m_GameObject: {fileID: 2051099096075868639}
+-  m_Material: {fileID: 0}
+-  m_IsTrigger: 0
+-  m_Enabled: 1
+-  serializedVersion: 4
+-  m_Convex: 0
+-  m_CookingOptions: 30
+-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+diff --git a/legend_siam_ar/Assets/Text_Marker/Brahma_text.prefab b/legend_siam_ar/Assets/Text_Marker/Brahma_text.prefab
+index 8b34fca..4a01f00 100644
+--- a/legend_siam_ar/Assets/Text_Marker/Brahma_text.prefab
++++ b/legend_siam_ar/Assets/Text_Marker/Brahma_text.prefab
+@@ -1,5 +1,18 @@
+ %YAML 1.1
+ %TAG !u! tag:unity3d.com,2011:
++--- !u!114 &2387741157988217298
++MonoBehaviour:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 446735539877391167}
++  m_Enabled: 1
++  m_EditorHideFlags: 0
++  m_Script: {fileID: 11500000, guid: 5281c62358d4076499a8b5603b3b3fda, type: 3}
++  m_Name: 
++  m_EditorClassIdentifier: 
++  Model: {fileID: 7214684273437398923}
+ --- !u!1 &531369672142134678
+ GameObject:
+   m_ObjectHideFlags: 0
+@@ -254,6 +267,8 @@ Transform:
+   - {fileID: 4522112781259859154}
+   - {fileID: 6158336474108768043}
+   - {fileID: 9062554368313479997}
++  - {fileID: 32542652300638337}
++  - {fileID: 3136475604349329184}
+   m_Father: {fileID: 0}
+   m_RootOrder: 0
+   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+@@ -350,6 +365,104 @@ TextMesh:
+   m_Color:
+     serializedVersion: 2
+     rgba: 4278190080
++--- !u!1 &5481753569626221010
++GameObject:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  serializedVersion: 6
++  m_Component:
++  - component: {fileID: 32542652300638337}
++  - component: {fileID: 8819439085383190009}
++  - component: {fileID: 8571454568395303787}
++  - component: {fileID: 7505249634553141750}
++  m_Layer: 5
++  m_Name: Canvas
++  m_TagString: Untagged
++  m_Icon: {fileID: 0}
++  m_NavMeshLayer: 0
++  m_StaticEditorFlags: 0
++  m_IsActive: 1
++--- !u!224 &32542652300638337
++RectTransform:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 5481753569626221010}
++  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
++  m_LocalPosition: {x: 0, y: 0, z: 0}
++  m_LocalScale: {x: 0, y: 0, z: 0}
++  m_Children: []
++  m_Father: {fileID: 2025682418076033572}
++  m_RootOrder: 3
++  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
++  m_AnchorMin: {x: 0, y: 0}
++  m_AnchorMax: {x: 0, y: 0}
++  m_AnchoredPosition: {x: 0, y: 0}
++  m_SizeDelta: {x: 0, y: 0}
++  m_Pivot: {x: 0, y: 0}
++--- !u!223 &8819439085383190009
++Canvas:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 5481753569626221010}
++  m_Enabled: 1
++  serializedVersion: 3
++  m_RenderMode: 0
++  m_Camera: {fileID: 0}
++  m_PlaneDistance: 100
++  m_PixelPerfect: 0
++  m_ReceivesEvents: 1
++  m_OverrideSorting: 0
++  m_OverridePixelPerfect: 0
++  m_SortingBucketNormalizedSize: 0
++  m_AdditionalShaderChannelsFlag: 0
++  m_SortingLayerID: 0
++  m_SortingOrder: 0
++  m_TargetDisplay: 0
++--- !u!114 &8571454568395303787
++MonoBehaviour:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 5481753569626221010}
++  m_Enabled: 1
++  m_EditorHideFlags: 0
++  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
++  m_Name: 
++  m_EditorClassIdentifier: 
++  m_UiScaleMode: 0
++  m_ReferencePixelsPerUnit: 100
++  m_ScaleFactor: 1
++  m_ReferenceResolution: {x: 800, y: 600}
++  m_ScreenMatchMode: 0
++  m_MatchWidthOrHeight: 0
++  m_PhysicalUnit: 3
++  m_FallbackScreenDPI: 96
++  m_DefaultSpriteDPI: 96
++  m_DynamicPixelsPerUnit: 1
++--- !u!114 &7505249634553141750
++MonoBehaviour:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 5481753569626221010}
++  m_Enabled: 1
++  m_EditorHideFlags: 0
++  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
++  m_Name: 
++  m_EditorClassIdentifier: 
++  m_IgnoreReversedGraphics: 1
++  m_BlockingObjects: 0
++  m_BlockingMask:
++    serializedVersion: 2
++    m_Bits: 4294967295
+ --- !u!114 &5065480148600927263
+ MonoBehaviour:
+   m_ObjectHideFlags: 0
+@@ -379,6 +492,99 @@ MonoBehaviour:
+   m_FillOrigin: 0
+   m_UseSpriteMesh: 0
+   m_PixelsPerUnitMultiplier: 1
++--- !u!1 &7214684273437398923
++GameObject:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  serializedVersion: 6
++  m_Component:
++  - component: {fileID: 3136475604349329184}
++  - component: {fileID: 6504742741604434115}
++  - component: {fileID: 5208136791244836966}
++  - component: {fileID: 2780465439278799516}
++  m_Layer: 0
++  m_Name: Cube
++  m_TagString: Untagged
++  m_Icon: {fileID: 0}
++  m_NavMeshLayer: 0
++  m_StaticEditorFlags: 0
++  m_IsActive: 1
++--- !u!4 &3136475604349329184
++Transform:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 7214684273437398923}
++  m_LocalRotation: {x: -0.109056294, y: 0.2905194, z: 0.3340894, w: 0.88999414}
++  m_LocalPosition: {x: -1.279, y: 1.478, z: 0.155}
++  m_LocalScale: {x: 1, y: 1, z: 1}
++  m_Children: []
++  m_Father: {fileID: 2025682418076033572}
++  m_RootOrder: 4
++  m_LocalEulerAnglesHint: {x: -22.845001, y: 28.820002, z: 35.207}
++--- !u!33 &6504742741604434115
++MeshFilter:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 7214684273437398923}
++  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
++--- !u!23 &5208136791244836966
++MeshRenderer:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 7214684273437398923}
++  m_Enabled: 1
++  m_CastShadows: 1
++  m_ReceiveShadows: 1
++  m_DynamicOccludee: 1
++  m_MotionVectors: 1
++  m_LightProbeUsage: 1
++  m_ReflectionProbeUsage: 1
++  m_RayTracingMode: 2
++  m_RenderingLayerMask: 1
++  m_RendererPriority: 0
++  m_Materials:
++  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
++  m_StaticBatchInfo:
++    firstSubMesh: 0
++    subMeshCount: 0
++  m_StaticBatchRoot: {fileID: 0}
++  m_ProbeAnchor: {fileID: 0}
++  m_LightProbeVolumeOverride: {fileID: 0}
++  m_ScaleInLightmap: 1
++  m_ReceiveGI: 1
++  m_PreserveUVs: 0
++  m_IgnoreNormalsForChartDetection: 0
++  m_ImportantGI: 0
++  m_StitchLightmapSeams: 1
++  m_SelectedEditorRenderState: 3
++  m_MinimumChartSize: 4
++  m_AutoUVMaxDistance: 0.5
++  m_AutoUVMaxAngle: 89
++  m_LightmapParameters: {fileID: 0}
++  m_SortingLayerID: 0
++  m_SortingLayer: 0
++  m_SortingOrder: 0
++--- !u!65 &2780465439278799516
++BoxCollider:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 7214684273437398923}
++  m_Material: {fileID: 0}
++  m_IsTrigger: 0
++  m_Enabled: 1
++  serializedVersion: 2
++  m_Size: {x: 1, y: 1, z: 1}
++  m_Center: {x: 0, y: 0, z: 0}
+ --- !u!1001 &5909819629109410742
+ PrefabInstance:
+   m_ObjectHideFlags: 0
+@@ -423,6 +629,36 @@ PrefabInstance:
+       propertyPath: m_Name
+       value: Name place
+       objectReference: {fileID: 0}
++    - target: {fileID: 2890663610810066863, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
++      value: 1
++      objectReference: {fileID: 0}
++    - target: {fileID: 2890663610810066863, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
++      value: 1
++      objectReference: {fileID: 0}
++    - target: {fileID: 2890663610810066863, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
++      value: 2
++      objectReference: {fileID: 0}
++    - target: {fileID: 2890663610810066863, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
++      value: 
++      objectReference: {fileID: 2387741157988217298}
++    - target: {fileID: 2890663610810066863, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
++      value: OnChangeValue
++      objectReference: {fileID: 0}
++    - target: {fileID: 2890663610810066863, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
++      value: UnityEngine.Object, UnityEngine
++      objectReference: {fileID: 0}
+     - target: {fileID: 2983600432974269856, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_Text
+@@ -533,17 +769,47 @@ PrefabInstance:
+       propertyPath: m_Pivot.y
+       value: 0
+       objectReference: {fileID: 0}
++    - target: {fileID: 3531402048396790906, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_AnchorMin.x
++      value: 0.5
++      objectReference: {fileID: 0}
++    - target: {fileID: 3531402048396790906, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_AnchorMax.x
++      value: 0.5
++      objectReference: {fileID: 0}
++    - target: {fileID: 3531402048396790906, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_AnchoredPosition.x
++      value: -7.799988
++      objectReference: {fileID: 0}
+     - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_AnchoredPosition.x
+-      value: 2.8
++      value: 2.56
++      objectReference: {fileID: 0}
++    - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_AnchoredPosition.y
++      value: -1.19
++      objectReference: {fileID: 0}
++    - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_AnchorMin.x
++      value: 0.5
++      objectReference: {fileID: 0}
++    - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_AnchorMax.x
++      value: 0.5
+       objectReference: {fileID: 0}
+     m_RemovedComponents:
+     - {fileID: 4282227950253570154, guid: 55cba38132fc7464fbb02da5939dff81, type: 3}
+   m_SourcePrefab: {fileID: 100100000, guid: 55cba38132fc7464fbb02da5939dff81, type: 3}
+---- !u!224 &9062554368313479997 stripped
+-RectTransform:
+-  m_CorrespondingSourceObject: {fileID: 3442804598544214155, guid: 55cba38132fc7464fbb02da5939dff81,
++--- !u!1 &446735539877391167 stripped
++GameObject:
++  m_CorrespondingSourceObject: {fileID: 6066623847990120585, guid: 55cba38132fc7464fbb02da5939dff81,
+     type: 3}
+   m_PrefabInstance: {fileID: 5909819629109410742}
+   m_PrefabAsset: {fileID: 0}
+@@ -553,6 +819,12 @@ GameObject:
+     type: 3}
+   m_PrefabInstance: {fileID: 5909819629109410742}
+   m_PrefabAsset: {fileID: 0}
++--- !u!224 &9062554368313479997 stripped
++RectTransform:
++  m_CorrespondingSourceObject: {fileID: 3442804598544214155, guid: 55cba38132fc7464fbb02da5939dff81,
++    type: 3}
++  m_PrefabInstance: {fileID: 5909819629109410742}
++  m_PrefabAsset: {fileID: 0}
+ --- !u!1001 &5988475053587901865
+ PrefabInstance:
+   m_ObjectHideFlags: 0
+diff --git a/legend_siam_ar/Assets/Text_Marker/Brahma_text_F.prefab b/legend_siam_ar/Assets/Text_Marker/Brahma_text_F.prefab
+index 40e31aa..1ef4d11 100644
+--- a/legend_siam_ar/Assets/Text_Marker/Brahma_text_F.prefab
++++ b/legend_siam_ar/Assets/Text_Marker/Brahma_text_F.prefab
+@@ -504,7 +504,12 @@ PrefabInstance:
+     - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_AnchoredPosition.x
+-      value: 2.8
++      value: 6.45
++      objectReference: {fileID: 0}
++    - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_AnchoredPosition.y
++      value: -1.22
+       objectReference: {fileID: 0}
+     m_RemovedComponents:
+     - {fileID: 4282227950253570154, guid: 55cba38132fc7464fbb02da5939dff81, type: 3}
+diff --git a/legend_siam_ar/Assets/Text_Marker/Bridge_Night.prefab b/legend_siam_ar/Assets/Text_Marker/Bridge_Night.prefab
+index 0838466..a88886a 100644
+--- a/legend_siam_ar/Assets/Text_Marker/Bridge_Night.prefab
++++ b/legend_siam_ar/Assets/Text_Marker/Bridge_Night.prefab
+@@ -362,6 +362,11 @@ PrefabInstance:
+       propertyPath: m_Text
+       value: "\u0E15\u0E25\u0E32\u0E14\u0E19\u0E49\u0E33 100 \u0E1B\u0E35"
+       objectReference: {fileID: 0}
++    - target: {fileID: 2983600432974269856, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_FontData.m_Alignment
++      value: 4
++      objectReference: {fileID: 0}
+     - target: {fileID: 3442804598544214155, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_LocalPosition.x
+@@ -470,7 +475,12 @@ PrefabInstance:
+     - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_AnchoredPosition.x
+-      value: 3.1
++      value: 3.69
++      objectReference: {fileID: 0}
++    - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_AnchoredPosition.y
++      value: -0.8
+       objectReference: {fileID: 0}
+     m_RemovedComponents: []
+   m_SourcePrefab: {fileID: 100100000, guid: 55cba38132fc7464fbb02da5939dff81, type: 3}
+diff --git a/legend_siam_ar/Assets/Text_Marker/Bridge_text.prefab b/legend_siam_ar/Assets/Text_Marker/Bridge_text.prefab
+index 760a3b6..22847b4 100644
+--- a/legend_siam_ar/Assets/Text_Marker/Bridge_text.prefab
++++ b/legend_siam_ar/Assets/Text_Marker/Bridge_text.prefab
+@@ -547,6 +547,11 @@ PrefabInstance:
+       propertyPath: m_Text
+       value: "\u0E15\u0E25\u0E32\u0E14\u0E19\u0E49\u0E33 100 \u0E1B\u0E35"
+       objectReference: {fileID: 0}
++    - target: {fileID: 2983600432974269856, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_FontData.m_Alignment
++      value: 4
++      objectReference: {fileID: 0}
+     - target: {fileID: 3442804598544214155, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_LocalPosition.x
+@@ -655,7 +660,12 @@ PrefabInstance:
+     - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_AnchoredPosition.x
+-      value: 3.04
++      value: 3.65
++      objectReference: {fileID: 0}
++    - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_AnchoredPosition.y
++      value: -0.84
+       objectReference: {fileID: 0}
+     m_RemovedComponents: []
+   m_SourcePrefab: {fileID: 100100000, guid: 55cba38132fc7464fbb02da5939dff81, type: 3}
+diff --git a/legend_siam_ar/Assets/Text_Marker/Ghost_house_Night.prefab b/legend_siam_ar/Assets/Text_Marker/Ghost_house_Night.prefab
+index bcf893b..4a96ffe 100644
+--- a/legend_siam_ar/Assets/Text_Marker/Ghost_house_Night.prefab
++++ b/legend_siam_ar/Assets/Text_Marker/Ghost_house_Night.prefab
+@@ -542,6 +542,11 @@ PrefabInstance:
+       propertyPath: m_Text
+       value: "\u0E1A\u0E49\u0E32\u0E19\u0E41\u0E21\u0E48\u0E19\u0E32\u0E04 \u0E1E\u0E23\u0E30\u0E42\u0E02\u0E19\u0E07"
+       objectReference: {fileID: 0}
++    - target: {fileID: 2983600432974269856, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_FontData.m_Alignment
++      value: 4
++      objectReference: {fileID: 0}
+     - target: {fileID: 3442804598544214155, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_LocalPosition.x
+@@ -650,7 +655,12 @@ PrefabInstance:
+     - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_AnchoredPosition.x
+-      value: 2.41
++      value: 3.71
++      objectReference: {fileID: 0}
++    - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_AnchoredPosition.y
++      value: -0.8
+       objectReference: {fileID: 0}
+     m_RemovedComponents: []
+   m_SourcePrefab: {fileID: 100100000, guid: 55cba38132fc7464fbb02da5939dff81, type: 3}
+diff --git a/legend_siam_ar/Assets/Text_Marker/Ghost_house_text.prefab b/legend_siam_ar/Assets/Text_Marker/Ghost_house_text.prefab
+index 935e068..b3b522f 100644
+--- a/legend_siam_ar/Assets/Text_Marker/Ghost_house_text.prefab
++++ b/legend_siam_ar/Assets/Text_Marker/Ghost_house_text.prefab
+@@ -632,6 +632,11 @@ PrefabInstance:
+       propertyPath: m_Text
+       value: "\u0E1A\u0E49\u0E32\u0E19\u0E41\u0E21\u0E48\u0E19\u0E32\u0E04 \u0E1E\u0E23\u0E30\u0E42\u0E02\u0E19\u0E07"
+       objectReference: {fileID: 0}
++    - target: {fileID: 2983600432974269856, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_FontData.m_Alignment
++      value: 4
++      objectReference: {fileID: 0}
+     - target: {fileID: 3442804598544214155, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_LocalPosition.x
+@@ -740,7 +745,12 @@ PrefabInstance:
+     - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_AnchoredPosition.x
+-      value: 2.42
++      value: 3.7
++      objectReference: {fileID: 0}
++    - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_AnchoredPosition.y
++      value: -0.81
+       objectReference: {fileID: 0}
+     m_RemovedComponents: []
+   m_SourcePrefab: {fileID: 100100000, guid: 55cba38132fc7464fbb02da5939dff81, type: 3}
+diff --git a/legend_siam_ar/Assets/Text_Marker/Giant_text.prefab b/legend_siam_ar/Assets/Text_Marker/Giant_text.prefab
+index 24663b9..ad96f34 100644
+--- a/legend_siam_ar/Assets/Text_Marker/Giant_text.prefab
++++ b/legend_siam_ar/Assets/Text_Marker/Giant_text.prefab
+@@ -218,6 +218,7 @@ Transform:
+   - {fileID: 6275022228718891119}
+   - {fileID: 1824955991108548289}
+   - {fileID: 6661297940884442448}
++  - {fileID: 3421676771503867552}
+   m_Father: {fileID: 0}
+   m_RootOrder: 0
+   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+@@ -407,6 +408,19 @@ TextMesh:
+   m_Color:
+     serializedVersion: 2
+     rgba: 4278190080
++--- !u!114 &6142185449341228858
++MonoBehaviour:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 2847991967187940690}
++  m_Enabled: 1
++  m_EditorHideFlags: 0
++  m_Script: {fileID: 11500000, guid: 5281c62358d4076499a8b5603b3b3fda, type: 3}
++  m_Name: 
++  m_EditorClassIdentifier: 
++  Model: {fileID: 2609814309760523290}
+ --- !u!1001 &2379542607554054448
+ PrefabInstance:
+   m_ObjectHideFlags: 0
+@@ -677,6 +691,87 @@ Transform:
+     type: 3}
+   m_PrefabInstance: {fileID: 4237826435942873364}
+   m_PrefabAsset: {fileID: 0}
++--- !u!1001 &6109748284699509723
++PrefabInstance:
++  m_ObjectHideFlags: 0
++  serializedVersion: 2
++  m_Modification:
++    m_TransformParent: {fileID: 186668728489404216}
++    m_Modifications:
++    - target: {fileID: 8141879172341489601, guid: 93d3b3f9eb0781b43a604d64ba1e06a4,
++        type: 3}
++      propertyPath: m_Name
++      value: A01_Masking
++      objectReference: {fileID: 0}
++    - target: {fileID: 8914333766695028091, guid: 93d3b3f9eb0781b43a604d64ba1e06a4,
++        type: 3}
++      propertyPath: m_LocalPosition.x
++      value: 0.013
++      objectReference: {fileID: 0}
++    - target: {fileID: 8914333766695028091, guid: 93d3b3f9eb0781b43a604d64ba1e06a4,
++        type: 3}
++      propertyPath: m_LocalPosition.y
++      value: 0.06
++      objectReference: {fileID: 0}
++    - target: {fileID: 8914333766695028091, guid: 93d3b3f9eb0781b43a604d64ba1e06a4,
++        type: 3}
++      propertyPath: m_LocalPosition.z
++      value: 1.78
++      objectReference: {fileID: 0}
++    - target: {fileID: 8914333766695028091, guid: 93d3b3f9eb0781b43a604d64ba1e06a4,
++        type: 3}
++      propertyPath: m_LocalRotation.x
++      value: 0
++      objectReference: {fileID: 0}
++    - target: {fileID: 8914333766695028091, guid: 93d3b3f9eb0781b43a604d64ba1e06a4,
++        type: 3}
++      propertyPath: m_LocalRotation.y
++      value: 1
++      objectReference: {fileID: 0}
++    - target: {fileID: 8914333766695028091, guid: 93d3b3f9eb0781b43a604d64ba1e06a4,
++        type: 3}
++      propertyPath: m_LocalRotation.z
++      value: 0
++      objectReference: {fileID: 0}
++    - target: {fileID: 8914333766695028091, guid: 93d3b3f9eb0781b43a604d64ba1e06a4,
++        type: 3}
++      propertyPath: m_LocalRotation.w
++      value: 0
++      objectReference: {fileID: 0}
++    - target: {fileID: 8914333766695028091, guid: 93d3b3f9eb0781b43a604d64ba1e06a4,
++        type: 3}
++      propertyPath: m_RootOrder
++      value: 5
++      objectReference: {fileID: 0}
++    - target: {fileID: 8914333766695028091, guid: 93d3b3f9eb0781b43a604d64ba1e06a4,
++        type: 3}
++      propertyPath: m_LocalEulerAnglesHint.x
++      value: 0
++      objectReference: {fileID: 0}
++    - target: {fileID: 8914333766695028091, guid: 93d3b3f9eb0781b43a604d64ba1e06a4,
++        type: 3}
++      propertyPath: m_LocalEulerAnglesHint.y
++      value: 180
++      objectReference: {fileID: 0}
++    - target: {fileID: 8914333766695028091, guid: 93d3b3f9eb0781b43a604d64ba1e06a4,
++        type: 3}
++      propertyPath: m_LocalEulerAnglesHint.z
++      value: 0
++      objectReference: {fileID: 0}
++    m_RemovedComponents: []
++  m_SourcePrefab: {fileID: 100100000, guid: 93d3b3f9eb0781b43a604d64ba1e06a4, type: 3}
++--- !u!1 &2609814309760523290 stripped
++GameObject:
++  m_CorrespondingSourceObject: {fileID: 8141879172341489601, guid: 93d3b3f9eb0781b43a604d64ba1e06a4,
++    type: 3}
++  m_PrefabInstance: {fileID: 6109748284699509723}
++  m_PrefabAsset: {fileID: 0}
++--- !u!4 &3421676771503867552 stripped
++Transform:
++  m_CorrespondingSourceObject: {fileID: 8914333766695028091, guid: 93d3b3f9eb0781b43a604d64ba1e06a4,
++    type: 3}
++  m_PrefabInstance: {fileID: 6109748284699509723}
++  m_PrefabAsset: {fileID: 0}
+ --- !u!1001 &8338102060117026267
+ PrefabInstance:
+   m_ObjectHideFlags: 0
+@@ -689,6 +784,36 @@ PrefabInstance:
+       propertyPath: m_Name
+       value: Canvas
+       objectReference: {fileID: 0}
++    - target: {fileID: 2890663610810066863, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
++      value: 1
++      objectReference: {fileID: 0}
++    - target: {fileID: 2890663610810066863, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
++      value: 1
++      objectReference: {fileID: 0}
++    - target: {fileID: 2890663610810066863, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
++      value: 2
++      objectReference: {fileID: 0}
++    - target: {fileID: 2890663610810066863, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
++      value: 
++      objectReference: {fileID: 6142185449341228858}
++    - target: {fileID: 2890663610810066863, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
++      value: OnChangeValue
++      objectReference: {fileID: 0}
++    - target: {fileID: 2890663610810066863, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
++      value: UnityEngine.Object, UnityEngine
++      objectReference: {fileID: 0}
+     - target: {fileID: 2983600432974269856, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_Text
+@@ -832,17 +957,17 @@ PrefabInstance:
+     - target: {fileID: 3531402048396790906, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_AnchoredPosition.x
+-      value: 4
++      value: 421
+       objectReference: {fileID: 0}
+     - target: {fileID: 3531402048396790906, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_AnchoredPosition.y
+-      value: 521.36
++      value: -184
+       objectReference: {fileID: 0}
+     - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_AnchoredPosition.x
+-      value: 1.21
++      value: 4.75
+       objectReference: {fileID: 0}
+     - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+@@ -862,7 +987,7 @@ PrefabInstance:
+     - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_AnchoredPosition.y
+-      value: -0.31
++      value: -1.12
+       objectReference: {fileID: 0}
+     - target: {fileID: 4851053850336473736, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+@@ -904,6 +1029,36 @@ PrefabInstance:
+       propertyPath: m_LocalScale.z
+       value: 51.087734
+       objectReference: {fileID: 0}
++    - target: {fileID: 7739204772203290469, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_RootOrder
++      value: 1
++      objectReference: {fileID: 0}
++    - target: {fileID: 7739204772203290469, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_AnchoredPosition.x
++      value: 39
++      objectReference: {fileID: 0}
++    - target: {fileID: 7739204772203290469, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_AnchoredPosition.y
++      value: -279
++      objectReference: {fileID: 0}
++    - target: {fileID: 7739204772203290469, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_LocalScale.x
++      value: 2.3529193
++      objectReference: {fileID: 0}
++    - target: {fileID: 7739204772203290469, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_LocalScale.y
++      value: 2.3529193
++      objectReference: {fileID: 0}
++    - target: {fileID: 7739204772203290469, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_LocalScale.z
++      value: 2.3529193
++      objectReference: {fileID: 0}
+     m_RemovedComponents: []
+   m_SourcePrefab: {fileID: 100100000, guid: 55cba38132fc7464fbb02da5939dff81, type: 3}
+ --- !u!224 &6661297940884442448 stripped
+@@ -912,6 +1067,12 @@ RectTransform:
+     type: 3}
+   m_PrefabInstance: {fileID: 8338102060117026267}
+   m_PrefabAsset: {fileID: 0}
++--- !u!1 &2847991967187940690 stripped
++GameObject:
++  m_CorrespondingSourceObject: {fileID: 6066623847990120585, guid: 55cba38132fc7464fbb02da5939dff81,
++    type: 3}
++  m_PrefabInstance: {fileID: 8338102060117026267}
++  m_PrefabAsset: {fileID: 0}
+ --- !u!1001 &8397269397460533178
+ PrefabInstance:
+   m_ObjectHideFlags: 0
+diff --git a/legend_siam_ar/Assets/Text_Marker/Name place.prefab b/legend_siam_ar/Assets/Text_Marker/Name place.prefab
+index 0b932e2..8c0b87f 100644
+--- a/legend_siam_ar/Assets/Text_Marker/Name place.prefab	
++++ b/legend_siam_ar/Assets/Text_Marker/Name place.prefab	
+@@ -31,6 +31,7 @@ RectTransform:
+   m_LocalScale: {x: 0, y: 0, z: 0}
+   m_Children:
+   - {fileID: 3531402048396790906}
++  - {fileID: 7739204772203290469}
+   m_Father: {fileID: 0}
+   m_RootOrder: 0
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+@@ -133,10 +134,10 @@ RectTransform:
+   m_Father: {fileID: 3442804598544214155}
+   m_RootOrder: 0
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+-  m_AnchorMin: {x: 0.5, y: 0.5}
+-  m_AnchorMax: {x: 0.5, y: 0.5}
+-  m_AnchoredPosition: {x: -7.8, y: 541}
+-  m_SizeDelta: {x: 7.34, y: 1.59}
++  m_AnchorMin: {x: 0, y: 1}
++  m_AnchorMax: {x: 0, y: 1}
++  m_AnchoredPosition: {x: 392.2, y: -170}
++  m_SizeDelta: {x: 7.3399963, y: 1.5900269}
+   m_Pivot: {x: 0.5, y: 0.5}
+ --- !u!212 &4851053850336473736
+ SpriteRenderer:
+@@ -257,9 +258,9 @@ RectTransform:
+   m_Father: {fileID: 3531402048396790906}
+   m_RootOrder: 0
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+-  m_AnchorMin: {x: 0.5, y: 0.5}
+-  m_AnchorMax: {x: 0.5, y: 0.5}
+-  m_AnchoredPosition: {x: 3.34, y: -0.36}
++  m_AnchorMin: {x: 0, y: 1}
++  m_AnchorMax: {x: 0, y: 1}
++  m_AnchoredPosition: {x: 7.34, y: -1.3599854}
+   m_SizeDelta: {x: 160, y: 30}
+   m_Pivot: {x: 0.5, y: 0.5}
+ --- !u!222 &5475532296025888478
+@@ -303,3 +304,393 @@ MonoBehaviour:
+     m_VerticalOverflow: 0
+     m_LineSpacing: 1
+   m_Text: "\u0E41\u0E01\u0E49\u0E44\u0E02\u0E40\u0E25\u0E22\u0E08\u0E49\u0E32"
++--- !u!1 &5018032744454035863
++GameObject:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  serializedVersion: 6
++  m_Component:
++  - component: {fileID: 123812153114073081}
++  - component: {fileID: 1537704694977728473}
++  - component: {fileID: 6837152200058320841}
++  m_Layer: 0
++  m_Name: Background
++  m_TagString: Untagged
++  m_Icon: {fileID: 0}
++  m_NavMeshLayer: 0
++  m_StaticEditorFlags: 0
++  m_IsActive: 1
++--- !u!224 &123812153114073081
++RectTransform:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 5018032744454035863}
++  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
++  m_LocalPosition: {x: 0, y: 0, z: 0}
++  m_LocalScale: {x: 1, y: 1, z: 1}
++  m_Children:
++  - {fileID: 3955655979452384973}
++  m_Father: {fileID: 7739204772203290469}
++  m_RootOrder: 0
++  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
++  m_AnchorMin: {x: 0, y: 1}
++  m_AnchorMax: {x: 0, y: 1}
++  m_AnchoredPosition: {x: 10, y: -10}
++  m_SizeDelta: {x: 20, y: 20}
++  m_Pivot: {x: 0.5, y: 0.5}
++--- !u!222 &1537704694977728473
++CanvasRenderer:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 5018032744454035863}
++  m_CullTransparentMesh: 0
++--- !u!114 &6837152200058320841
++MonoBehaviour:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 5018032744454035863}
++  m_Enabled: 1
++  m_EditorHideFlags: 0
++  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
++  m_Name: 
++  m_EditorClassIdentifier: 
++  m_Material: {fileID: 0}
++  m_Color: {r: 1, g: 1, b: 1, a: 1}
++  m_RaycastTarget: 1
++  m_Maskable: 1
++  m_OnCullStateChanged:
++    m_PersistentCalls:
++      m_Calls: []
++  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
++  m_Type: 1
++  m_PreserveAspect: 0
++  m_FillCenter: 1
++  m_FillMethod: 4
++  m_FillAmount: 1
++  m_FillClockwise: 1
++  m_FillOrigin: 0
++  m_UseSpriteMesh: 0
++  m_PixelsPerUnitMultiplier: 1
++--- !u!1 &5947552352860363029
++GameObject:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  serializedVersion: 6
++  m_Component:
++  - component: {fileID: 3955655979452384973}
++  - component: {fileID: 6478126976500239217}
++  - component: {fileID: 59695490644075714}
++  m_Layer: 0
++  m_Name: Checkmark
++  m_TagString: Untagged
++  m_Icon: {fileID: 0}
++  m_NavMeshLayer: 0
++  m_StaticEditorFlags: 0
++  m_IsActive: 1
++--- !u!224 &3955655979452384973
++RectTransform:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 5947552352860363029}
++  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
++  m_LocalPosition: {x: 0, y: 0, z: 0}
++  m_LocalScale: {x: 1, y: 1, z: 1}
++  m_Children: []
++  m_Father: {fileID: 123812153114073081}
++  m_RootOrder: 0
++  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
++  m_AnchorMin: {x: 0.5, y: 0.5}
++  m_AnchorMax: {x: 0.5, y: 0.5}
++  m_AnchoredPosition: {x: 0, y: 0}
++  m_SizeDelta: {x: 20, y: 20}
++  m_Pivot: {x: 0.5, y: 0.5}
++--- !u!222 &6478126976500239217
++CanvasRenderer:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 5947552352860363029}
++  m_CullTransparentMesh: 0
++--- !u!114 &59695490644075714
++MonoBehaviour:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 5947552352860363029}
++  m_Enabled: 1
++  m_EditorHideFlags: 0
++  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
++  m_Name: 
++  m_EditorClassIdentifier: 
++  m_Material: {fileID: 0}
++  m_Color: {r: 1, g: 1, b: 1, a: 1}
++  m_RaycastTarget: 1
++  m_Maskable: 1
++  m_OnCullStateChanged:
++    m_PersistentCalls:
++      m_Calls: []
++  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
++  m_Type: 0
++  m_PreserveAspect: 0
++  m_FillCenter: 1
++  m_FillMethod: 4
++  m_FillAmount: 1
++  m_FillClockwise: 1
++  m_FillOrigin: 0
++  m_UseSpriteMesh: 0
++  m_PixelsPerUnitMultiplier: 1
++--- !u!1 &6066623847990120585
++GameObject:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  serializedVersion: 6
++  m_Component:
++  - component: {fileID: 7739204772203290469}
++  - component: {fileID: 2890663610810066863}
++  m_Layer: 0
++  m_Name: Toggle
++  m_TagString: Untagged
++  m_Icon: {fileID: 0}
++  m_NavMeshLayer: 0
++  m_StaticEditorFlags: 0
++  m_IsActive: 1
++--- !u!224 &7739204772203290469
++RectTransform:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 6066623847990120585}
++  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
++  m_LocalPosition: {x: 0, y: 0, z: 0}
++  m_LocalScale: {x: 1.3407, y: 1.3407, z: 1.3407}
++  m_Children:
++  - {fileID: 123812153114073081}
++  - {fileID: 74416302576636849}
++  m_Father: {fileID: 3442804598544214155}
++  m_RootOrder: 1
++  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
++  m_AnchorMin: {x: 0.5, y: 1}
++  m_AnchorMax: {x: 0.5, y: 1}
++  m_AnchoredPosition: {x: 0, y: -237}
++  m_SizeDelta: {x: 160, y: 20}
++  m_Pivot: {x: 0.5, y: 0.5}
++--- !u!114 &2890663610810066863
++MonoBehaviour:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 6066623847990120585}
++  m_Enabled: 1
++  m_EditorHideFlags: 0
++  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
++  m_Name: 
++  m_EditorClassIdentifier: 
++  m_Navigation:
++    m_Mode: 3
++    m_SelectOnUp: {fileID: 0}
++    m_SelectOnDown: {fileID: 0}
++    m_SelectOnLeft: {fileID: 0}
++    m_SelectOnRight: {fileID: 0}
++  m_Transition: 1
++  m_Colors:
++    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
++    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
++    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
++    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
++    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
++    m_ColorMultiplier: 1
++    m_FadeDuration: 0.1
++  m_SpriteState:
++    m_HighlightedSprite: {fileID: 0}
++    m_PressedSprite: {fileID: 0}
++    m_SelectedSprite: {fileID: 0}
++    m_DisabledSprite: {fileID: 0}
++  m_AnimationTriggers:
++    m_NormalTrigger: Normal
++    m_HighlightedTrigger: Highlighted
++    m_PressedTrigger: Pressed
++    m_SelectedTrigger: Selected
++    m_DisabledTrigger: Disabled
++  m_Interactable: 1
++  m_TargetGraphic: {fileID: 6837152200058320841}
++  toggleTransition: 1
++  graphic: {fileID: 59695490644075714}
++  m_Group: {fileID: 0}
++  onValueChanged:
++    m_PersistentCalls:
++      m_Calls: []
++  m_IsOn: 1
++--- !u!1 &8010901804998366377
++GameObject:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  serializedVersion: 6
++  m_Component:
++  - component: {fileID: 74416302576636849}
++  - component: {fileID: 3184368831205686375}
++  - component: {fileID: 6599066341722627719}
++  m_Layer: 0
++  m_Name: TextShowModel
++  m_TagString: Untagged
++  m_Icon: {fileID: 0}
++  m_NavMeshLayer: 0
++  m_StaticEditorFlags: 0
++  m_IsActive: 1
++--- !u!224 &74416302576636849
++RectTransform:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 8010901804998366377}
++  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
++  m_LocalPosition: {x: 0, y: 0, z: 0}
++  m_LocalScale: {x: 0.62585, y: 0.62585, z: 0.62585}
++  m_Children: []
++  m_Father: {fileID: 7739204772203290469}
++  m_RootOrder: 1
++  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
++  m_AnchorMin: {x: 0.5, y: 0.5}
++  m_AnchorMax: {x: 0.5, y: 0.5}
++  m_AnchoredPosition: {x: 6.6, y: -4}
++  m_SizeDelta: {x: 200, y: 50}
++  m_Pivot: {x: 0.5, y: 0.5}
++--- !u!222 &3184368831205686375
++CanvasRenderer:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 8010901804998366377}
++  m_CullTransparentMesh: 0
++--- !u!114 &6599066341722627719
++MonoBehaviour:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 8010901804998366377}
++  m_Enabled: 1
++  m_EditorHideFlags: 0
++  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
++  m_Name: 
++  m_EditorClassIdentifier: 
++  m_Material: {fileID: 0}
++  m_Color: {r: 1, g: 1, b: 1, a: 1}
++  m_RaycastTarget: 1
++  m_Maskable: 1
++  m_OnCullStateChanged:
++    m_PersistentCalls:
++      m_Calls: []
++  m_text: ShowModel
++  m_isRightToLeft: 0
++  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
++  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
++  m_fontSharedMaterials: []
++  m_fontMaterial: {fileID: 0}
++  m_fontMaterials: []
++  m_fontColor32:
++    serializedVersion: 2
++    rgba: 4294967295
++  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
++  m_enableVertexGradient: 0
++  m_colorMode: 3
++  m_fontColorGradient:
++    topLeft: {r: 1, g: 1, b: 1, a: 1}
++    topRight: {r: 1, g: 1, b: 1, a: 1}
++    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
++    bottomRight: {r: 1, g: 1, b: 1, a: 1}
++  m_fontColorGradientPreset: {fileID: 0}
++  m_spriteAsset: {fileID: 0}
++  m_tintAllSprites: 0
++  m_overrideHtmlColors: 0
++  m_faceColor:
++    serializedVersion: 2
++    rgba: 4294967295
++  m_outlineColor:
++    serializedVersion: 2
++    rgba: 4278190080
++  m_fontSize: 36
++  m_fontSizeBase: 36
++  m_fontWeight: 400
++  m_enableAutoSizing: 0
++  m_fontSizeMin: 18
++  m_fontSizeMax: 72
++  m_fontStyle: 0
++  m_textAlignment: 257
++  m_characterSpacing: 0
++  m_wordSpacing: 0
++  m_lineSpacing: 0
++  m_lineSpacingMax: 0
++  m_paragraphSpacing: 0
++  m_charWidthMaxAdj: 0
++  m_enableWordWrapping: 1
++  m_wordWrappingRatios: 0.4
++  m_overflowMode: 0
++  m_firstOverflowCharacterIndex: -1
++  m_linkedTextComponent: {fileID: 0}
++  m_isLinkedTextComponent: 0
++  m_isTextTruncated: 0
++  m_enableKerning: 1
++  m_enableExtraPadding: 0
++  checkPaddingRequired: 0
++  m_isRichText: 1
++  m_parseCtrlCharacters: 1
++  m_isOrthographic: 1
++  m_isCullingEnabled: 0
++  m_ignoreRectMaskCulling: 0
++  m_ignoreCulling: 1
++  m_horizontalMapping: 0
++  m_verticalMapping: 0
++  m_uvLineOffset: 0
++  m_geometrySortingOrder: 0
++  m_VertexBufferAutoSizeReduction: 1
++  m_firstVisibleCharacter: 0
++  m_useMaxVisibleDescender: 1
++  m_pageToDisplay: 1
++  m_margin: {x: 0, y: 0, z: 0, w: 0}
++  m_textInfo:
++    textComponent: {fileID: 6599066341722627719}
++    characterCount: 9
++    spriteCount: 0
++    spaceCount: 0
++    wordCount: 1
++    linkCount: 0
++    lineCount: 1
++    pageCount: 1
++    materialCount: 1
++  m_isUsingLegacyAnimationComponent: 0
++  m_isVolumetricText: 0
++  m_spriteAnimator: {fileID: 0}
++  m_hasFontAssetChanged: 0
++  m_subTextObjects:
++  - {fileID: 0}
++  - {fileID: 0}
++  - {fileID: 0}
++  - {fileID: 0}
++  - {fileID: 0}
++  - {fileID: 0}
++  - {fileID: 0}
++  - {fileID: 0}
++  m_baseMaterial: {fileID: 0}
++  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+diff --git a/legend_siam_ar/Assets/Text_Marker/Road_text.prefab b/legend_siam_ar/Assets/Text_Marker/Road_text.prefab
+index 7ae10ea..acb5314 100644
+--- a/legend_siam_ar/Assets/Text_Marker/Road_text.prefab
++++ b/legend_siam_ar/Assets/Text_Marker/Road_text.prefab
+@@ -268,6 +268,11 @@ PrefabInstance:
+       propertyPath: m_Text
+       value: "\u0E18\u0E23\u0E23\u0E21\u0E19\u0E33\u0E17\u0E32\u0E07"
+       objectReference: {fileID: 0}
++    - target: {fileID: 2983600432974269856, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_FontData.m_Alignment
++      value: 4
++      objectReference: {fileID: 0}
+     - target: {fileID: 3442804598544214155, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_LocalPosition.x
+@@ -373,6 +378,16 @@ PrefabInstance:
+       propertyPath: m_Pivot.y
+       value: 0
+       objectReference: {fileID: 0}
++    - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_AnchoredPosition.y
++      value: -0.79
++      objectReference: {fileID: 0}
++    - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_AnchoredPosition.x
++      value: 3.74
++      objectReference: {fileID: 0}
+     m_RemovedComponents: []
+   m_SourcePrefab: {fileID: 100100000, guid: 55cba38132fc7464fbb02da5939dff81, type: 3}
+ --- !u!224 &4099423634967613266 stripped
+diff --git a/legend_siam_ar/Assets/Text_Marker/Road_text_Night.prefab b/legend_siam_ar/Assets/Text_Marker/Road_text_Night.prefab
+index aef544e..0ad5476 100644
+--- a/legend_siam_ar/Assets/Text_Marker/Road_text_Night.prefab
++++ b/legend_siam_ar/Assets/Text_Marker/Road_text_Night.prefab
+@@ -448,6 +448,11 @@ PrefabInstance:
+       propertyPath: m_Text
+       value: "\u0E18\u0E23\u0E23\u0E21\u0E19\u0E33\u0E17\u0E32\u0E07"
+       objectReference: {fileID: 0}
++    - target: {fileID: 2983600432974269856, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_FontData.m_Alignment
++      value: 4
++      objectReference: {fileID: 0}
+     - target: {fileID: 3442804598544214155, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_LocalPosition.x
+@@ -553,6 +558,21 @@ PrefabInstance:
+       propertyPath: m_Pivot.y
+       value: 0
+       objectReference: {fileID: 0}
++    - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_AnchoredPosition.y
++      value: -0.84
++      objectReference: {fileID: 0}
++    - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_AnchoredPosition.x
++      value: 3.84
++      objectReference: {fileID: 0}
++    - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_LocalPosition.z
++      value: -0
++      objectReference: {fileID: 0}
+     m_RemovedComponents: []
+   m_SourcePrefab: {fileID: 100100000, guid: 55cba38132fc7464fbb02da5939dff81, type: 3}
+ --- !u!224 &6889301865731497232 stripped
+diff --git a/legend_siam_ar/Assets/Text_Marker/Serpent_night.prefab b/legend_siam_ar/Assets/Text_Marker/Serpent_night.prefab
+index 9a69058..3d08e1b 100644
+--- a/legend_siam_ar/Assets/Text_Marker/Serpent_night.prefab
++++ b/legend_siam_ar/Assets/Text_Marker/Serpent_night.prefab
+@@ -448,6 +448,11 @@ PrefabInstance:
+       propertyPath: m_Text
+       value: "\u0E19\u0E32\u0E04\u0E19\u0E32\u0E04\u0E32\u0E40\u0E17\u0E27\u0E32\u0E04\u0E23\u0E32\u0E2A\u0E16\u0E34\u0E15\u0E22\u0E4C"
+       objectReference: {fileID: 0}
++    - target: {fileID: 2983600432974269856, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_FontData.m_Alignment
++      value: 4
++      objectReference: {fileID: 0}
+     - target: {fileID: 3442804598544214155, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_LocalPosition.x
+@@ -556,7 +561,7 @@ PrefabInstance:
+     - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_AnchoredPosition.x
+-      value: 1.57
++      value: 3.7
+       objectReference: {fileID: 0}
+     - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+@@ -581,7 +586,7 @@ PrefabInstance:
+     - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_AnchoredPosition.y
+-      value: -0.36
++      value: -0.8
+       objectReference: {fileID: 0}
+     - target: {fileID: 7375705613209852660, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+diff --git a/legend_siam_ar/Assets/Text_Marker/Serpent_text.prefab b/legend_siam_ar/Assets/Text_Marker/Serpent_text.prefab
+index 30ff33c..715a235 100644
+--- a/legend_siam_ar/Assets/Text_Marker/Serpent_text.prefab
++++ b/legend_siam_ar/Assets/Text_Marker/Serpent_text.prefab
+@@ -448,6 +448,11 @@ PrefabInstance:
+       propertyPath: m_Text
+       value: "\u0E19\u0E32\u0E04\u0E19\u0E32\u0E04\u0E32\u0E40\u0E17\u0E27\u0E32\u0E04\u0E23\u0E32\u0E2A\u0E16\u0E34\u0E15\u0E22\u0E4C"
+       objectReference: {fileID: 0}
++    - target: {fileID: 2983600432974269856, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_FontData.m_Alignment
++      value: 4
++      objectReference: {fileID: 0}
+     - target: {fileID: 3442804598544214155, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_LocalPosition.x
+@@ -571,7 +576,17 @@ PrefabInstance:
+     - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+       propertyPath: m_AnchoredPosition.x
+-      value: 1.57
++      value: 3.7
++      objectReference: {fileID: 0}
++    - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_LocalPosition.z
++      value: 0
++      objectReference: {fileID: 0}
++    - target: {fileID: 4271897298436363110, guid: 55cba38132fc7464fbb02da5939dff81,
++        type: 3}
++      propertyPath: m_AnchoredPosition.y
++      value: -0.78
+       objectReference: {fileID: 0}
+     - target: {fileID: 5375230641458373123, guid: 55cba38132fc7464fbb02da5939dff81,
+         type: 3}
+diff --git a/legend_siam_ar/Assets/UI/Legend Siam DemoUI/BG_Text1.png.meta b/legend_siam_ar/Assets/UI/Legend Siam DemoUI/BG_Text1.png.meta
+index a1c7504..3373ed1 100644
+--- a/legend_siam_ar/Assets/UI/Legend Siam DemoUI/BG_Text1.png.meta	
++++ b/legend_siam_ar/Assets/UI/Legend Siam DemoUI/BG_Text1.png.meta	
+@@ -6,8 +6,8 @@ TextureImporter:
+   serializedVersion: 11
+   mipmaps:
+     mipMapMode: 0
+-    enableMipMap: 1
+-    sRGBTexture: 0
++    enableMipMap: 0
++    sRGBTexture: 1
+     linearTexture: 0
+     fadeOut: 0
+     borderMipMap: 0
+@@ -49,9 +49,9 @@ TextureImporter:
+   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+   spriteGenerateFallbackPhysicsShape: 1
+   alphaUsage: 1
+-  alphaIsTransparency: 0
++  alphaIsTransparency: 1
+   spriteTessellationDetail: -1
+-  textureType: 1
++  textureType: 8
+   textureShape: 1
+   singleChannelComponent: 0
+   maxTextureSizeSet: 0
+diff --git a/legend_siam_ar/Assets/UI_focus.cs b/legend_siam_ar/Assets/UI_focus.cs
+deleted file mode 100644
+index 7228556..0000000
+--- a/legend_siam_ar/Assets/UI_focus.cs
++++ /dev/null
+@@ -1,24 +0,0 @@
+-﻿using System.Collections;
+-using System.Collections.Generic;
+-using UnityEngine;
+-using UnityEngine.UI;
+-
+-public class UI_focus : MonoBehaviour
+-{
+-    public GameObject ui_Focus ;
+-    public GameObject textpalce ;
+-    // Start is called before the first frame update
+-    void Start()
+-    {
+-        
+-    }
+-
+-    // Update is called once per frame
+-    void Update()
+-    {
+-        if(textpalce == true)
+-        {
+-            ui_Focus.SetActive(false); 
+-        }
+-    }
+-}
+diff --git a/legend_siam_ar/Assets/_PROJECT/_TestMarker.unity b/legend_siam_ar/Assets/_PROJECT/_TestMarker.unity
+index ae52a2c..b5931e5 100644
+--- a/legend_siam_ar/Assets/_PROJECT/_TestMarker.unity
++++ b/legend_siam_ar/Assets/_PROJECT/_TestMarker.unity
+@@ -169,10 +169,32 @@ MonoBehaviour:
+     type: 3}
+   OnObjectRecognized:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 0
++        m_CallState: 2
+   OnObjectLost:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 1
++        m_CallState: 2
+ --- !u!224 &342063490 stripped
+ RectTransform:
+   m_CorrespondingSourceObject: {fileID: 6462608547343732423, guid: f008bb8d5cf095644a014e617788ba7b,
+@@ -387,10 +409,32 @@ MonoBehaviour:
+     type: 3}
+   OnObjectRecognized:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 0
++        m_CallState: 2
+   OnObjectLost:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 1
++        m_CallState: 2
+ --- !u!1 &397640061
+ GameObject:
+   m_ObjectHideFlags: 0
+@@ -548,8 +592,7 @@ Transform:
+   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+   m_LocalPosition: {x: 0, y: 0, z: 0}
+   m_LocalScale: {x: 1, y: 1, z: 1}
+-  m_Children:
+-  - {fileID: 4588494641055638118}
++  m_Children: []
+   m_Father: {fileID: 1793755598}
+   m_RootOrder: 1
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+@@ -570,10 +613,32 @@ MonoBehaviour:
+     type: 3}
+   OnObjectRecognized:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 0
++        m_CallState: 2
+   OnObjectLost:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 1
++        m_CallState: 2
+ --- !u!1 &602232284
+ GameObject:
+   m_ObjectHideFlags: 0
+@@ -680,130 +745,32 @@ MonoBehaviour:
+     type: 3}
+   OnObjectRecognized:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 0
++        m_CallState: 2
+   OnObjectLost:
+     m_PersistentCalls:
+-      m_Calls: []
+---- !u!1001 &775005818
+-PrefabInstance:
+-  m_ObjectHideFlags: 0
+-  serializedVersion: 2
+-  m_Modification:
+-    m_TransformParent: {fileID: 927618129}
+-    m_Modifications:
+-    - target: {fileID: 2025682417703865712, guid: c14739fec6fd2b5468f4792299223503,
+-        type: 3}
+-      propertyPath: m_Text
+-      value: "\u0E41\u0E2A\u0E07\u0E2D\u0E2D\u0E23\u0E48\u0E32 1"
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2025682418076033571, guid: c14739fec6fd2b5468f4792299223503,
+-        type: 3}
+-      propertyPath: m_Name
+-      value: Brahma_text
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2025682418076033571, guid: c14739fec6fd2b5468f4792299223503,
+-        type: 3}
+-      propertyPath: m_IsActive
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2025682418076033572, guid: c14739fec6fd2b5468f4792299223503,
+-        type: 3}
+-      propertyPath: m_LocalPosition.x
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2025682418076033572, guid: c14739fec6fd2b5468f4792299223503,
+-        type: 3}
+-      propertyPath: m_LocalPosition.y
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2025682418076033572, guid: c14739fec6fd2b5468f4792299223503,
+-        type: 3}
+-      propertyPath: m_LocalPosition.z
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2025682418076033572, guid: c14739fec6fd2b5468f4792299223503,
+-        type: 3}
+-      propertyPath: m_LocalRotation.x
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2025682418076033572, guid: c14739fec6fd2b5468f4792299223503,
+-        type: 3}
+-      propertyPath: m_LocalRotation.y
+-      value: 1
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2025682418076033572, guid: c14739fec6fd2b5468f4792299223503,
+-        type: 3}
+-      propertyPath: m_LocalRotation.z
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2025682418076033572, guid: c14739fec6fd2b5468f4792299223503,
+-        type: 3}
+-      propertyPath: m_LocalRotation.w
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2025682418076033572, guid: c14739fec6fd2b5468f4792299223503,
+-        type: 3}
+-      propertyPath: m_RootOrder
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2025682418076033572, guid: c14739fec6fd2b5468f4792299223503,
+-        type: 3}
+-      propertyPath: m_LocalEulerAnglesHint.x
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2025682418076033572, guid: c14739fec6fd2b5468f4792299223503,
+-        type: 3}
+-      propertyPath: m_LocalEulerAnglesHint.y
+-      value: 180
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2025682418076033572, guid: c14739fec6fd2b5468f4792299223503,
+-        type: 3}
+-      propertyPath: m_LocalEulerAnglesHint.z
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2025682418965240030, guid: c14739fec6fd2b5468f4792299223503,
+-        type: 3}
+-      propertyPath: m_LocalPosition.x
+-      value: -3.24
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2025682418965240030, guid: c14739fec6fd2b5468f4792299223503,
+-        type: 3}
+-      propertyPath: m_LocalPosition.y
+-      value: 0.83477
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2025682418965240030, guid: c14739fec6fd2b5468f4792299223503,
+-        type: 3}
+-      propertyPath: m_LocalScale.x
+-      value: 0.12745361
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2025682418965240030, guid: c14739fec6fd2b5468f4792299223503,
+-        type: 3}
+-      propertyPath: m_LocalScale.y
+-      value: 0.12745361
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2025682418965240030, guid: c14739fec6fd2b5468f4792299223503,
+-        type: 3}
+-      propertyPath: m_LocalScale.z
+-      value: 0.12745361
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2025682418965240031, guid: c14739fec6fd2b5468f4792299223503,
+-        type: 3}
+-      propertyPath: m_Text
+-      value: "\u0E1E\u0E23\u0E30\u0E1E\u0E23\u0E2B\u0E21\u0E14\u0E49\u0E32\u0E19\u0E2B\u0E19\u0E49\u0E32"
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 6611680901232370746, guid: c14739fec6fd2b5468f4792299223503,
+-        type: 3}
+-      propertyPath: m_AnchoredPosition.x
+-      value: -2.44
+-      objectReference: {fileID: 0}
+-    m_RemovedComponents: []
+-  m_SourcePrefab: {fileID: 100100000, guid: c14739fec6fd2b5468f4792299223503, type: 3}
+---- !u!4 &775005819 stripped
+-Transform:
+-  m_CorrespondingSourceObject: {fileID: 2025682418076033572, guid: c14739fec6fd2b5468f4792299223503,
+-    type: 3}
+-  m_PrefabInstance: {fileID: 775005818}
+-  m_PrefabAsset: {fileID: 0}
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 1
++        m_CallState: 2
+ --- !u!1 &917300034
+ GameObject:
+   m_ObjectHideFlags: 0
+@@ -841,7 +808,6 @@ Transform:
+   - {fileID: 738398804}
+   - {fileID: 1334350490}
+   - {fileID: 974543213}
+-  - {fileID: 966928606}
+   m_Father: {fileID: 602232286}
+   m_RootOrder: 0
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+@@ -959,8 +925,7 @@ Transform:
+   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+   m_LocalPosition: {x: 0, y: 0, z: 0}
+   m_LocalScale: {x: 1, y: 1, z: 1}
+-  m_Children:
+-  - {fileID: 775005819}
++  m_Children: []
+   m_Father: {fileID: 1793755598}
+   m_RootOrder: 0
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+@@ -981,62 +946,32 @@ MonoBehaviour:
+     type: 3}
+   OnObjectRecognized:
+     m_PersistentCalls:
+-      m_Calls: []
+-  OnObjectLost:
+-    m_PersistentCalls:
+-      m_Calls: []
+---- !u!1 &966928605
+-GameObject:
+-  m_ObjectHideFlags: 0
+-  m_CorrespondingSourceObject: {fileID: 0}
+-  m_PrefabInstance: {fileID: 0}
+-  m_PrefabAsset: {fileID: 0}
+-  serializedVersion: 6
+-  m_Component:
+-  - component: {fileID: 966928606}
+-  - component: {fileID: 966928607}
+-  m_Layer: 0
+-  m_Name: Brahma
+-  m_TagString: Untagged
+-  m_Icon: {fileID: 0}
+-  m_NavMeshLayer: 0
+-  m_StaticEditorFlags: 0
+-  m_IsActive: 0
+---- !u!4 &966928606
+-Transform:
+-  m_ObjectHideFlags: 0
+-  m_CorrespondingSourceObject: {fileID: 0}
+-  m_PrefabInstance: {fileID: 0}
+-  m_PrefabAsset: {fileID: 0}
+-  m_GameObject: {fileID: 966928605}
+-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+-  m_LocalPosition: {x: 0, y: 0, z: 0}
+-  m_LocalScale: {x: 1, y: 1, z: 1}
+-  m_Children: []
+-  m_Father: {fileID: 917300035}
+-  m_RootOrder: 9
+-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+---- !u!114 &966928607
+-MonoBehaviour:
+-  m_ObjectHideFlags: 0
+-  m_CorrespondingSourceObject: {fileID: 0}
+-  m_PrefabInstance: {fileID: 0}
+-  m_PrefabAsset: {fileID: 0}
+-  m_GameObject: {fileID: 966928605}
+-  m_Enabled: 1
+-  m_EditorHideFlags: 0
+-  m_Script: {fileID: -1945805196, guid: 91fd7328b3c484c248cdb8b9e8ab2261, type: 3}
+-  m_Name: 
+-  m_EditorClassIdentifier: 
+-  _targetPattern: Brahma 17|Brahma 19
+-  _drawable: {fileID: 2025682418076033571, guid: c14739fec6fd2b5468f4792299223503,
+-    type: 3}
+-  OnObjectRecognized:
+-    m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 0
++        m_CallState: 2
+   OnObjectLost:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 1
++        m_CallState: 2
+ --- !u!1 &974543212
+ GameObject:
+   m_ObjectHideFlags: 0
+@@ -1085,10 +1020,32 @@ MonoBehaviour:
+     type: 3}
+   OnObjectRecognized:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 0
++        m_CallState: 2
+   OnObjectLost:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 1
++        m_CallState: 2
+ --- !u!1001 &983644495
+ PrefabInstance:
+   m_ObjectHideFlags: 0
+@@ -1437,8 +1394,7 @@ Transform:
+   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+   m_LocalPosition: {x: 0, y: 0, z: 0}
+   m_LocalScale: {x: 1, y: 1, z: 1}
+-  m_Children:
+-  - {fileID: 1238616008249621932}
++  m_Children: []
+   m_Father: {fileID: 1793755598}
+   m_RootOrder: 2
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+@@ -1459,15 +1415,37 @@ MonoBehaviour:
+     type: 3}
+   OnObjectRecognized:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 0
++        m_CallState: 2
+   OnObjectLost:
+     m_PersistentCalls:
+-      m_Calls: []
+---- !u!1 &1275299668
+-GameObject:
+-  m_ObjectHideFlags: 0
+-  m_CorrespondingSourceObject: {fileID: 0}
+-  m_PrefabInstance: {fileID: 0}
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 1
++        m_CallState: 2
++--- !u!1 &1275299668
++GameObject:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
+   m_PrefabAsset: {fileID: 0}
+   serializedVersion: 6
+   m_Component:
+@@ -1585,10 +1563,32 @@ MonoBehaviour:
+     type: 3}
+   OnObjectRecognized:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 0
++        m_CallState: 2
+   OnObjectLost:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 1
++        m_CallState: 2
+ --- !u!1 &1334350489
+ GameObject:
+   m_ObjectHideFlags: 0
+@@ -1637,10 +1637,32 @@ MonoBehaviour:
+     type: 3}
+   OnObjectRecognized:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 0
++        m_CallState: 2
+   OnObjectLost:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 1
++        m_CallState: 2
+ --- !u!1 &1386817392
+ GameObject:
+   m_ObjectHideFlags: 0
+@@ -1689,10 +1711,32 @@ MonoBehaviour:
+     type: 3}
+   OnObjectRecognized:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 0
++        m_CallState: 2
+   OnObjectLost:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 1
++        m_CallState: 2
+ --- !u!1 &1397418293
+ GameObject:
+   m_ObjectHideFlags: 0
+@@ -1784,8 +1828,7 @@ Transform:
+   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+   m_LocalPosition: {x: 0, y: 0, z: 0}
+   m_LocalScale: {x: 1, y: 1, z: 1}
+-  m_Children:
+-  - {fileID: 766603884958334679}
++  m_Children: []
+   m_Father: {fileID: 1793755598}
+   m_RootOrder: 3
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+@@ -1806,10 +1849,32 @@ MonoBehaviour:
+     type: 3}
+   OnObjectRecognized:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 0
++        m_CallState: 2
+   OnObjectLost:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 1
++        m_CallState: 2
+ --- !u!1 &1522544621
+ GameObject:
+   m_ObjectHideFlags: 0
+@@ -2147,10 +2212,32 @@ MonoBehaviour:
+     type: 3}
+   OnObjectRecognized:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 0
++        m_CallState: 2
+   OnObjectLost:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 1
++        m_CallState: 2
+ --- !u!1 &2011241247
+ GameObject:
+   m_ObjectHideFlags: 0
+@@ -2199,10 +2286,32 @@ MonoBehaviour:
+     type: 3}
+   OnObjectRecognized:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 0
++        m_CallState: 2
+   OnObjectLost:
+     m_PersistentCalls:
+-      m_Calls: []
++      m_Calls:
++      - m_Target: {fileID: 2130712060}
++        m_MethodName: SetActive
++        m_Mode: 6
++        m_Arguments:
++          m_ObjectArgument: {fileID: 0}
++          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
++          m_IntArgument: 0
++          m_FloatArgument: 0
++          m_StringArgument: 
++          m_BoolArgument: 1
++        m_CallState: 2
+ --- !u!1 &2093872174
+ GameObject:
+   m_ObjectHideFlags: 0
+@@ -2286,245 +2395,11 @@ Transform:
+   m_Father: {fileID: 0}
+   m_RootOrder: 0
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+---- !u!1001 &646746615515242849
+-PrefabInstance:
+-  m_ObjectHideFlags: 0
+-  serializedVersion: 2
+-  m_Modification:
+-    m_TransformParent: {fileID: 1467529854}
+-    m_Modifications:
+-    - target: {fileID: 169503689807552433, guid: 3bfc254df5b5c25458f7f004648e317d,
+-        type: 3}
+-      propertyPath: m_Name
+-      value: Brahma_text_B
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 169503689807552433, guid: 3bfc254df5b5c25458f7f004648e317d,
+-        type: 3}
+-      propertyPath: m_IsActive
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 169503689807552438, guid: 3bfc254df5b5c25458f7f004648e317d,
+-        type: 3}
+-      propertyPath: m_LocalPosition.x
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 169503689807552438, guid: 3bfc254df5b5c25458f7f004648e317d,
+-        type: 3}
+-      propertyPath: m_LocalPosition.y
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 169503689807552438, guid: 3bfc254df5b5c25458f7f004648e317d,
+-        type: 3}
+-      propertyPath: m_LocalPosition.z
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 169503689807552438, guid: 3bfc254df5b5c25458f7f004648e317d,
+-        type: 3}
+-      propertyPath: m_LocalRotation.x
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 169503689807552438, guid: 3bfc254df5b5c25458f7f004648e317d,
+-        type: 3}
+-      propertyPath: m_LocalRotation.y
+-      value: 1
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 169503689807552438, guid: 3bfc254df5b5c25458f7f004648e317d,
+-        type: 3}
+-      propertyPath: m_LocalRotation.z
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 169503689807552438, guid: 3bfc254df5b5c25458f7f004648e317d,
+-        type: 3}
+-      propertyPath: m_LocalRotation.w
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 169503689807552438, guid: 3bfc254df5b5c25458f7f004648e317d,
+-        type: 3}
+-      propertyPath: m_RootOrder
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 169503689807552438, guid: 3bfc254df5b5c25458f7f004648e317d,
+-        type: 3}
+-      propertyPath: m_LocalEulerAnglesHint.x
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 169503689807552438, guid: 3bfc254df5b5c25458f7f004648e317d,
+-        type: 3}
+-      propertyPath: m_LocalEulerAnglesHint.y
+-      value: 180
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 169503689807552438, guid: 3bfc254df5b5c25458f7f004648e317d,
+-        type: 3}
+-      propertyPath: m_LocalEulerAnglesHint.z
+-      value: 0
+-      objectReference: {fileID: 0}
+-    m_RemovedComponents: []
+-  m_SourcePrefab: {fileID: 100100000, guid: 3bfc254df5b5c25458f7f004648e317d, type: 3}
+---- !u!4 &766603884958334679 stripped
+-Transform:
+-  m_CorrespondingSourceObject: {fileID: 169503689807552438, guid: 3bfc254df5b5c25458f7f004648e317d,
+-    type: 3}
+-  m_PrefabInstance: {fileID: 646746615515242849}
+-  m_PrefabAsset: {fileID: 0}
+---- !u!4 &1238616008249621932 stripped
+-Transform:
+-  m_CorrespondingSourceObject: {fileID: 2325882399801712031, guid: 035f01413fc72f048ae55c74b0527af1,
+-    type: 3}
+-  m_PrefabInstance: {fileID: 3564391341479108659}
+-  m_PrefabAsset: {fileID: 0}
+---- !u!1001 &3359097232112905283
+-PrefabInstance:
+-  m_ObjectHideFlags: 0
+-  serializedVersion: 2
+-  m_Modification:
+-    m_TransformParent: {fileID: 529066708}
+-    m_Modifications:
+-    - target: {fileID: 1238616006557027874, guid: e27aa86012dea7f40a828a9281978c87,
+-        type: 3}
+-      propertyPath: m_Name
+-      value: Brahma_text_R
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 1238616006557027874, guid: e27aa86012dea7f40a828a9281978c87,
+-        type: 3}
+-      propertyPath: m_IsActive
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 1238616006557027877, guid: e27aa86012dea7f40a828a9281978c87,
+-        type: 3}
+-      propertyPath: m_LocalPosition.x
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 1238616006557027877, guid: e27aa86012dea7f40a828a9281978c87,
+-        type: 3}
+-      propertyPath: m_LocalPosition.y
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 1238616006557027877, guid: e27aa86012dea7f40a828a9281978c87,
+-        type: 3}
+-      propertyPath: m_LocalPosition.z
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 1238616006557027877, guid: e27aa86012dea7f40a828a9281978c87,
+-        type: 3}
+-      propertyPath: m_LocalRotation.x
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 1238616006557027877, guid: e27aa86012dea7f40a828a9281978c87,
+-        type: 3}
+-      propertyPath: m_LocalRotation.y
+-      value: 1
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 1238616006557027877, guid: e27aa86012dea7f40a828a9281978c87,
+-        type: 3}
+-      propertyPath: m_LocalRotation.z
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 1238616006557027877, guid: e27aa86012dea7f40a828a9281978c87,
+-        type: 3}
+-      propertyPath: m_LocalRotation.w
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 1238616006557027877, guid: e27aa86012dea7f40a828a9281978c87,
+-        type: 3}
+-      propertyPath: m_RootOrder
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 1238616006557027877, guid: e27aa86012dea7f40a828a9281978c87,
+-        type: 3}
+-      propertyPath: m_LocalEulerAnglesHint.x
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 1238616006557027877, guid: e27aa86012dea7f40a828a9281978c87,
+-        type: 3}
+-      propertyPath: m_LocalEulerAnglesHint.y
+-      value: 180
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 1238616006557027877, guid: e27aa86012dea7f40a828a9281978c87,
+-        type: 3}
+-      propertyPath: m_LocalEulerAnglesHint.z
+-      value: 0
+-      objectReference: {fileID: 0}
+-    m_RemovedComponents: []
+-  m_SourcePrefab: {fileID: 100100000, guid: e27aa86012dea7f40a828a9281978c87, type: 3}
+---- !u!1001 &3564391341479108659
+-PrefabInstance:
+-  m_ObjectHideFlags: 0
+-  serializedVersion: 2
+-  m_Modification:
+-    m_TransformParent: {fileID: 1215373992}
+-    m_Modifications:
+-    - target: {fileID: 2325882399801712024, guid: 035f01413fc72f048ae55c74b0527af1,
+-        type: 3}
+-      propertyPath: m_Name
+-      value: Brahma_text_L
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2325882399801712024, guid: 035f01413fc72f048ae55c74b0527af1,
+-        type: 3}
+-      propertyPath: m_IsActive
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2325882399801712031, guid: 035f01413fc72f048ae55c74b0527af1,
+-        type: 3}
+-      propertyPath: m_LocalPosition.x
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2325882399801712031, guid: 035f01413fc72f048ae55c74b0527af1,
+-        type: 3}
+-      propertyPath: m_LocalPosition.y
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2325882399801712031, guid: 035f01413fc72f048ae55c74b0527af1,
+-        type: 3}
+-      propertyPath: m_LocalPosition.z
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2325882399801712031, guid: 035f01413fc72f048ae55c74b0527af1,
+-        type: 3}
+-      propertyPath: m_LocalRotation.x
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2325882399801712031, guid: 035f01413fc72f048ae55c74b0527af1,
+-        type: 3}
+-      propertyPath: m_LocalRotation.y
+-      value: 1
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2325882399801712031, guid: 035f01413fc72f048ae55c74b0527af1,
+-        type: 3}
+-      propertyPath: m_LocalRotation.z
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2325882399801712031, guid: 035f01413fc72f048ae55c74b0527af1,
+-        type: 3}
+-      propertyPath: m_LocalRotation.w
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2325882399801712031, guid: 035f01413fc72f048ae55c74b0527af1,
+-        type: 3}
+-      propertyPath: m_RootOrder
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2325882399801712031, guid: 035f01413fc72f048ae55c74b0527af1,
+-        type: 3}
+-      propertyPath: m_LocalEulerAnglesHint.x
+-      value: 0
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2325882399801712031, guid: 035f01413fc72f048ae55c74b0527af1,
+-        type: 3}
+-      propertyPath: m_LocalEulerAnglesHint.y
+-      value: 180
+-      objectReference: {fileID: 0}
+-    - target: {fileID: 2325882399801712031, guid: 035f01413fc72f048ae55c74b0527af1,
+-        type: 3}
+-      propertyPath: m_LocalEulerAnglesHint.z
+-      value: 0
+-      objectReference: {fileID: 0}
+-    m_RemovedComponents: []
+-  m_SourcePrefab: {fileID: 100100000, guid: 035f01413fc72f048ae55c74b0527af1, type: 3}
+---- !u!4 &4588494641055638118 stripped
+-Transform:
+-  m_CorrespondingSourceObject: {fileID: 1238616006557027877, guid: e27aa86012dea7f40a828a9281978c87,
++--- !u!1 &2130712060 stripped
++GameObject:
++  m_CorrespondingSourceObject: {fileID: 6462608546987358537, guid: f008bb8d5cf095644a014e617788ba7b,
+     type: 3}
+-  m_PrefabInstance: {fileID: 3359097232112905283}
++  m_PrefabInstance: {fileID: 6462608547677009733}
+   m_PrefabAsset: {fileID: 0}
+ --- !u!1001 &6462608547677009733
+ PrefabInstance:
+@@ -2541,7 +2416,7 @@ PrefabInstance:
+     - target: {fileID: 6462608546987358537, guid: f008bb8d5cf095644a014e617788ba7b,
+         type: 3}
+       propertyPath: m_IsActive
+-      value: 0
++      value: 1
+       objectReference: {fileID: 0}
+     - target: {fileID: 6462608547343732423, guid: f008bb8d5cf095644a014e617788ba7b,
+         type: 3}
+@@ -2601,12 +2476,12 @@ PrefabInstance:
+     - target: {fileID: 6462608547343732423, guid: f008bb8d5cf095644a014e617788ba7b,
+         type: 3}
+       propertyPath: m_AnchoredPosition.x
+-      value: 23
++      value: 16
+       objectReference: {fileID: 0}
+     - target: {fileID: 6462608547343732423, guid: f008bb8d5cf095644a014e617788ba7b,
+         type: 3}
+       propertyPath: m_AnchoredPosition.y
+-      value: -143
++      value: -717
+       objectReference: {fileID: 0}
+     - target: {fileID: 6462608547343732423, guid: f008bb8d5cf095644a014e617788ba7b,
+         type: 3}
+@@ -2626,7 +2501,7 @@ PrefabInstance:
+     - target: {fileID: 6462608547343732423, guid: f008bb8d5cf095644a014e617788ba7b,
+         type: 3}
+       propertyPath: m_AnchorMin.y
+-      value: 0.5
++      value: 1
+       objectReference: {fileID: 0}
+     - target: {fileID: 6462608547343732423, guid: f008bb8d5cf095644a014e617788ba7b,
+         type: 3}
+@@ -2636,7 +2511,7 @@ PrefabInstance:
+     - target: {fileID: 6462608547343732423, guid: f008bb8d5cf095644a014e617788ba7b,
+         type: 3}
+       propertyPath: m_AnchorMax.y
+-      value: 0.5
++      value: 1
+       objectReference: {fileID: 0}
+     - target: {fileID: 6462608547343732423, guid: f008bb8d5cf095644a014e617788ba7b,
+         type: 3}
+diff --git a/legend_siam_ar/ProjectSettings/EditorBuildSettings.asset b/legend_siam_ar/ProjectSettings/EditorBuildSettings.asset
+index 4a1caa0..e48489b 100644
+--- a/legend_siam_ar/ProjectSettings/EditorBuildSettings.asset
++++ b/legend_siam_ar/ProjectSettings/EditorBuildSettings.asset
+@@ -5,9 +5,6 @@ EditorBuildSettings:
+   m_ObjectHideFlags: 0
+   serializedVersion: 2
+   m_Scenes:
+-  - enabled: 0
+-    path: Assets/_PROJECT/_MAIN.unity
+-    guid: faf14e7be1ec0474b9c865ef0cb693dd
+   - enabled: 1
+     path: Assets/_PROJECT/_TestMarker.unity
+     guid: 033bcb33830e4614dbbdf3e02c0d4f8c
+-- 
+2.21.0.windows.1
+
